@@ -6,10 +6,10 @@
 #include <string>
 using namespace std;
 
-int StringN[100] = { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 };
+unsigned long long StringN[100];// = { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 };
 int Ncashed = 0;
 
-long long getNum(int N, int K) {
+unsigned long long getNum(int N, int K) {
     if (N == Ncashed) {
       return StringN[K];
     }
@@ -23,7 +23,7 @@ long long getNum(int N, int K) {
     else {
         Ncashed = N;
         if (N == 0 || K == 0 || K == N) { StringN[K] = 1; return 1; }
-        else return getNum(N - 1, K - 1) + getNum(N - 1, K);
+        else return (getNum(N - 1, K - 1) + getNum(N - 1, K));
     }
 }
 long int fac(int n) {
